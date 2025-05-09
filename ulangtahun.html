@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ucapan Ulang Tahun</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      text-align: center;
+      padding: 50px;
+    }
+    .card, .login {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+    }
+    h1 {
+      color: #ff69b4;
+    }
+    p {
+      font-size: 18px;
+      color: #444;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Halaman Login -->
+<div class="login" id="loginPage">
+  <h1>Masuk dulu yuk!</h1>
+  <input type="text" id="username" placeholder="Masukkan namamu">
+  <br>
+  <button onclick="masuk()">Masuk</button>
+</div>
+
+<!-- Halaman Ucapan -->
+<div class="card" id="greetingPage" style="display: none;">
+  <h1>Selamat Ulang Tahun, <span id="namaUser"></span>! 🎉</h1>
+  <p>Semoga hari ulang tahunmu penuh kebahagiaan, cinta, dan harapan indah.</p>
+  <p>makasii banyak buat selin yang slalu ada dikala aku sedih, marah, bahagia. terimakasih slalu menemaniku dikala banyaknya badai riuh dihidupmu</p>
+  <p>semoga kamu slalu dikelilingi orang orang yang baik dan tulus yaa, loveyouu selin aa</p>
+  <img src="selin.jpg" alt="selin">
+</div>
+
+<!-- Musik Latar -->
+<audio id="birthdayMusic" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" preload="auto"></audio>
+
+<script>
+  function masuk() {
+    const nama = document.getElementById('username').value;
+    if (nama.trim() !== '') {
+      document.getElementById('loginPage').style.display = 'none';
+      document.getElementById('greetingPage').style.display = 'block';
+      document.getElementById('namaUser').innerText = nama;
+
+      // Mainkan musik
+      const musik = document.getElementById('birthdayMusic');
+      musik.play().catch(() => {
+        alert("Klik halaman sekali agar musik bisa diputar (aturan browser).");
+      });
+    } else {
+      alert('Nama tidak boleh kosong!');
+    }
+  }
+</script>
+
+</body>
+</html>
